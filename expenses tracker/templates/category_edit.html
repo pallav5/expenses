@@ -1,0 +1,37 @@
+{% extends 'base/master.html' %}
+{% load staticfiles %}
+
+{% block 'title' %} Category {% endblock %}
+{% block  'content' %}
+
+
+
+<div class="container">
+
+<div class="col-md-6">
+
+    <div class="panel panel-primary">
+
+        <div class="panel panel-heading">
+
+            Edit Category
+        </div>
+
+            <div class="panel panel-body">
+                <form method="post" action="#">
+                    {{ form }}
+                    {% csrf_token %}
+                       <br/>
+                         <button type="submit" class="btn btn-success">Save</button>
+                     </form>
+            </div>
+        </div>
+</div>
+
+
+
+</div>
+
+
+
+{% endblock %}

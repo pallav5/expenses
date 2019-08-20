@@ -1,0 +1,34 @@
+{% extends 'base/master.html' %}
+{% load staticfiles %}
+
+{% block 'title' %} Income {% endblock %}
+{% block  'content' %}
+
+
+
+<div class="container">
+
+<div class="col-md-6">
+
+    <div class="panel panel-primary">
+
+        <div class="panel panel-heading">
+
+            Edit Incomes
+        </div>
+
+            <div class="panel panel-body">
+                <form method="post" action="#" enctype="multipart/form-data">
+                    {{ form }}
+                    {% csrf_token %}
+                       <br/>
+                         <button type="submit" class="btn btn-success">Save</button>
+                     </form>
+            </div>
+        </div>
+</div>
+</div>
+
+
+
+{% endblock %}

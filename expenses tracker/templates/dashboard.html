@@ -1,0 +1,61 @@
+{% extends 'base/master.html' %}
+{% load staticfiles %}
+
+{% block 'title' %} Dashboard {% endblock %}
+{% block  'content' %}
+
+
+
+<div class="container">
+
+{#<div class="row">#}
+
+    <div class="col-md-4" >
+      <a href="{% url 'income' %}">  <img src="{% static 'img/income.jpg' %}" class="exp-img"> </a>
+        <a href="{% url 'income' %}" class="exp-text"> <h4> Income </h4> </a>
+
+    </div>
+
+     <div class="col-md-4" >
+
+         <a href="{% url 'expenses' %}" > <img src="{% static 'img/expenses.png' %}" class="exp-img"> </a>
+         <a href="{% url 'expenses' %}" class="exp-text"> <h4> Expenses </h4> </a>
+
+    </div>
+
+     <div class="col-md-4" >
+         <a href="{% url 'category' %}">  <img src="{% static 'img/report.jpg' %}"   class="exp-img"> </a>
+         <a href="{% url 'category' %}" class="exp-text"> <h4> Category </h4> </a>
+
+    </div>
+
+
+    </div>
+
+    <div class="container">
+
+    <div class="col-md-6">
+
+        <div id="piechart"></div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div id="expvssav"></div>
+
+    </div>
+
+
+
+    <div class="col-md-6">
+
+        <div id="prevexp"></div>
+
+    </div>
+
+    </div>
+
+{#</div>#}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+.navbar{
+
+ background-color: #2C2C54!important;
+ border:0px;
+    border-radius: 0px;
+}
+
+.navbar-right>li>a{
+    color: white!important;
+}
+
+.exp-img{
+
+    height: 150px!important;
+}
+
+.exp-text>h4{
+    margin-left:11% !important;
+}
+/*label{*/
+/*    color:black !important;*/
+/*}*/
+
+.panel-primary > .panel-heading {
+  color: #fff;
+  background-color: #2c2c54;
+  border-color: #337ab7;
+}
+
+.col-md-3 > .btn-warning{
+    background-color: #25CCF7 ;
+}

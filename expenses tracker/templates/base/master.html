@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+    {% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block 'title' %}{% endblock %} Expenses Tracker</title>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+          {% if request.user.is_authenticated %}
+          <li> <a href="{% url 'logout' %}" class=" btn btn-danger btn-sm"  >Logout</a> </li>
+          {% else %}
+        <li><a href="{% url 'signup' %}">Signup</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+
+      </ul>
+    </div>
+</nav>
+
+
+
+
+{% block 'content' %}
+
+{% endblock %}
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"> </script>
+ <script src="{% static 'bootbox/bootbox.min.js' %}"> </script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+    function delete_(url) {
+
+        bootbox.confirm("Are you sure want to delete this item?", function(result){
+            if(result==true){
+                 window.location.href = url
+            }
+
+        });
+   }
+</script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+      {% for x,y in data %}
+  ['{{ x }}', {{ y }}],
+
+      {% endfor %}
+
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses Chart of this month', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+
+
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+      {% for x,y in evs %}
+  ['{{ x }}', {{ y }}],
+
+      {% endfor %}
+
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses vs Saving', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('expvssav'));
+  chart.draw(data, options);
+}
+</script>
+
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+      {% for x,y in data1 %}
+  ['{{ x }}', {{ y }}],
+
+      {% endfor %}
+
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Previous Month Expenses', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('prevexp'));
+  chart.draw(data, options);
+}
+</script>
+
+
+
+
+
+</body>
+</html>
+
+

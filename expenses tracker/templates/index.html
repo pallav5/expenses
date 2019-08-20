@@ -1,0 +1,40 @@
+{% extends 'base/master.html' %}
+{% load staticfiles %}
+
+{% block 'title' %} Home {% endblock %}
+{% block  'content' %}
+
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+<div class="container">
+<h1 class="text-center text-capitalize" > First Project </h1>
+{#<h1> {{a }} {{ b }}</h1>#}
+
+<div class="col-md-3">
+
+<a href="{% url 'dashboard'  %}" class="btn btn-info btn-lg"> Dashboard </a>
+</div>
+
+<div class="col-md-3">
+
+<a href="{% url 'income'  %}" class="btn btn-warning btn-lg " > Income </a>
+</div>
+
+<div class="col-md-3">
+
+<a href="{% url 'expenses'  %}" class="btn btn-primary btn-lg"> Expenses </a>
+</div>
+
+<div class="col-md-3">
+
+<a href="{% url 'category'  %}" class="btn btn-danger btn-lg"> Category </a>
+</div>
+
+
+</div>
+
+
+{% endblock %}
